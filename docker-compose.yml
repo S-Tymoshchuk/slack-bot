@@ -1,0 +1,19 @@
+version: '3.4'
+
+volumes:
+  postgres-data:
+    driver: local
+
+services:
+  postgres:
+    image: postgres:14.4
+    environment:
+      POSTGRES_DB: "slack-bot"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "admin"
+    ports:
+    - 5432:5432
+    volumes:
+    - postgres-data:/var/lib/postgresql/data
+
+
